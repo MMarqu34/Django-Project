@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render 
+from rest_framework import viewsets
+from .models import user_reg
+from .serializers import user_regSerializer
 
-# from django.http import HttpResponse
 
-def index(request):
-    # return HttpReponse("<h1> The Main Page</h1>')
-    return render(request, 'mainpage.html')
+class user_regView(viewsets.ModelViewSet):
+    queryset = user_reg.objects.all()
+    serializer_class = user_regSerializer
